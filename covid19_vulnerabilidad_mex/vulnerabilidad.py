@@ -5,6 +5,7 @@ __all__ = ['show_feature_importances', 'mostrar_coeficientes_PLS', 'agregar_cont
            'ajustar_rf_letalidad', 'calificar_municipios_letalidad', 'calificar_municipios_letalidad_formato_largo',
            'seleccionar_caracteristicas', 'calcular_indices_vulnerabilidad',
            'calcular_indices_vulnerabilidad_formato_largo', 'calcular_periodo_vulnerabilidad',
+           'periodo_vulnerabilidad_con_dataframe', 'calcular_periodo_vulnerabilidad_2',
            'agregar_periodo_vulnerabilidad', 'calcular_vulnerabilidad_urbana', 'agregar_vulnerabilidad_entidades',
            'guardar_resultados_csv', 'mapas_serie_letalidad', 'mapas_serie_vulnerabilidad',
            'guardar_shape_vulnerabilidad', 'checkpoint_vulnerabilidad', 'cargar_checkpoint_vulnerabilidad']
@@ -114,7 +115,8 @@ def caracteristicas_modelos_municipios(mun_df, poblaciones=False, i_vuln=False):
     otras_vars = ['covid_defun_100k', 'tasa_covid_letal', 'defunciones',
                   'INTUBADO_BIN', 'UCI_BIN', 'UCIs', 'tasa_uci', 'total_pruebas',
                   'area_cart', 'area', 'densi', 'casos_frac', 'area_km2', 'conteo',
-                  'oid', 'covid_confrimados_100k', 'id', 'vulnerabilidad_ambiental_num', 'covid_confirmados_100k']
+                  'oid', 'covid_confrimados_100k', 'id', 'vulnerabilidad_ambiental_num',
+                  'covid_confirmados_100k', 'index']
 
     caracteristicas = list(set(columnas_numericas).difference(pob_vars + i_vuln_vars + otras_vars))
 
@@ -287,6 +289,63 @@ def calcular_periodo_vulnerabilidad(inicio, fin, min_defunciones=-1):
     modelos_df = pd.concat(modelos, ignore_index=True)
     return modelos_df, resultados_df
 
+# Cell
+def periodo_vulnerabilidad_con_dataframe(df, inicio, fin, min_defunciones=-1):
+    inicio = pd.to_datetime(inicio, yearfirst=True)
+    fin = pd.to_datetime(fin, yearfirst=True)
+    fin = min(df.FECHA_INGRESO.max(), fin)
+
+    fechas = pd.date_range(inicio, fin)
+    resultados = []
+    modelos = []
+
+
+    f = IntProgress(min=0, max=len(fechas) - 1) # instantiate the bar
+    display(f) # display the bar
+
+    covid_municipal = agregar_tasas_municipales(df)
+    caracteristicas = caracteristicas_modelos_municipios(covid_municipal)
+
+    for count, fecha in enumerate(fechas):
+        covid_municipal_fecha = covid_municipal.query(f'FECHA_INGRESO == "{fecha.strftime("%Y-%m-%d")}"')
+
+        pls = ajustar_pls_letalidad(covid_municipal_fecha, caracteristicas, min_defunciones=min_defunciones)
+        df = calificar_municipios_letalidad_formato_largo(covid_municipal_fecha, pls, caracteristicas,
+                                                    modelo='PLS', dia_ajuste=fecha)
+        resultados.append(df)
+        modelo = pd.DataFrame({'caracteristica': caracteristicas, 'coef': pls.coef_})
+        modelo['dia_ajuste'] = fecha
+        modelo['modelo'] = 'PLS'
+        modelos.append(modelo)
+
+        rf = ajustar_rf_letalidad(covid_municipal_fecha, caracteristicas, min_defunciones=min_defunciones)
+        df = calificar_municipios_letalidad_formato_largo(covid_municipal_fecha, rf, caracteristicas,
+                                            modelo='RF', dia_ajuste=fecha)
+        resultados.append(df)
+        modelo = pd.DataFrame({'caracteristica': caracteristicas, 'coef': rf.feature_importances_})
+        modelo['dia_ajuste'] = fecha
+        modelo['modelo'] = 'RF'
+        modelos.append(modelo)
+
+        f.value = count
+
+    resultados_df = pd.concat(resultados, ignore_index=True)
+    modelos_df = pd.concat(modelos, ignore_index=True)
+
+    resultados_df = gpd.GeoDataFrame(resultados_df, geometry='geometry')
+
+    return modelos_df, resultados_df
+
+def calcular_periodo_vulnerabilidad_2(fecha_archivo, inicio, fin, min_defunciones=-1):
+    asegura_archivos_covid_disponibles([fecha_archivo])
+    covid_municipal = serie_covid_indicadores_municipales(fecha_archivo.strftime("%y%m%d"))
+
+    modelos_df, resultados_df = periodo_vulnerabilidad_con_dataframe(covid_municipal,
+                                                                     inicio,
+                                                                     fin,
+                                                                     min_defunciones)
+
+    return modelos_df, resultados_df
 
 # Cell
 
