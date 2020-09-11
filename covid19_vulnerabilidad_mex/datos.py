@@ -343,7 +343,7 @@ def calcular_acumulativa_casos(casos_municipios_diarios, agregar_cols=False):
     else:
         df = df.groupby(level=[0, 1, 2, 3, 4]).cumsum()
 
-    mun_geoms = mun_covid[~mun_covid.CLAVE_MUNICIPIO_RES.duplicated()][['CLAVE_MUNICIPIO_RES', 'geometry']]
+    mun_geoms = casos_municipios_diarios[~casos_municipios_diarios.CLAVE_MUNICIPIO_RES.duplicated()][['CLAVE_MUNICIPIO_RES', 'geometry']]
     df = df.reset_index()
 
     df = df.merge(mun_geoms, on=['CLAVE_MUNICIPIO_RES'], how='left')
