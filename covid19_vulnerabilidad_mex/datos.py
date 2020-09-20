@@ -3,8 +3,8 @@
 __all__ = ['DATA_DIR_COVID', 'asegura_archivos_covid_disponibles', 'columnas_comunes', 'arregla_cvegeo', 'daterange',
            'cross_join', 'marco_municipal_2019', 'carga_datos_covid19_MX', 'actualizar_datos_salud',
            'agrupa_casos_municipios', 'agrupar_casos_municipios_por_fecha', 'calcular_acumulativa_casos',
-           'leer_variables_municipales', 'unir_casos_estadisticas_municipales', 'tabla_covid_indicadores_municipales',
-           'serie_covid_indicadores_municipales', 'municipios_urbanos']
+           'calcular_ventana_casos', 'leer_variables_municipales', 'unir_casos_estadisticas_municipales',
+           'tabla_covid_indicadores_municipales', 'serie_covid_indicadores_municipales', 'municipios_urbanos']
 
 # Cell
 import os
@@ -351,6 +351,32 @@ def calcular_acumulativa_casos(casos_municipios_diarios, agregar_cols=False):
 
     return df
 
+
+
+# Cell
+def calcular_ventana_casos(casos_municipios_diarios, dias_ventana=30):
+    '''
+    Agrega dos columnas: una con los casos acumulados en la ventana de tiempo especificada para la fecha respectiva,
+    y la otra con las defuncionas acumuladas en la misma ventana de tiempo.
+    '''
+    df = casos_municipios_diarios.copy()
+
+    df = df.set_index('FECHA_INGRESO')
+    df.sort_index(inplace=True)
+
+    rolling_grouping = df.groupby(['CLAVE_MUNICIPIO_RES',
+                       'RESULTADO']).rolling(f'{dias_ventana}D')
+
+    ventana_df = rolling_grouping[['conteo', 'defunciones']].sum()
+
+    ventana_df.rename(columns={'conteo': f'conteo_{dias_ventana}dias',
+                       'defunciones': f'defunciones_{dias_ventana}dias'},
+            inplace=True)
+
+    df = df.merge(ventana_df, on=['CLAVE_MUNICIPIO_RES', 'FECHA_INGRESO', 'RESULTADO'], how='left').reset_index()
+    df = gpd.GeoDataFrame(df, geometry='geometry')
+
+    return df
 
 
 # Cell
