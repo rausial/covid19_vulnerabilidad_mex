@@ -290,7 +290,7 @@ def calcular_periodo_vulnerabilidad(inicio, fin, min_defunciones=-1):
     return modelos_df, resultados_df
 
 # Cell
-def periodo_vulnerabilidad_con_dataframe(df, inicio, fin, min_defunciones=-1):
+def periodo_vulnerabilidad_con_dataframe(df, inicio, fin, min_casos=20, min_defunciones=-1):
     inicio = pd.to_datetime(inicio, yearfirst=True)
     fin = pd.to_datetime(fin, yearfirst=True)
     fin = min(df.FECHA_INGRESO.max(), fin)
@@ -309,7 +309,7 @@ def periodo_vulnerabilidad_con_dataframe(df, inicio, fin, min_defunciones=-1):
     for count, fecha in enumerate(fechas):
         covid_municipal_fecha = covid_municipal.query(f'FECHA_INGRESO == "{fecha.strftime("%Y-%m-%d")}"')
 
-        pls = ajustar_pls_letalidad(covid_municipal_fecha, caracteristicas, min_defunciones=min_defunciones)
+        pls = ajustar_pls_letalidad(covid_municipal_fecha, caracteristicas, min_casos=min_casos, min_defunciones=min_defunciones)
         df = calificar_municipios_letalidad_formato_largo(covid_municipal_fecha, pls, caracteristicas,
                                                     modelo='PLS', dia_ajuste=fecha)
         resultados.append(df)
@@ -318,7 +318,7 @@ def periodo_vulnerabilidad_con_dataframe(df, inicio, fin, min_defunciones=-1):
         modelo['modelo'] = 'PLS'
         modelos.append(modelo)
 
-        rf = ajustar_rf_letalidad(covid_municipal_fecha, caracteristicas, min_defunciones=min_defunciones)
+        rf = ajustar_rf_letalidad(covid_municipal_fecha, caracteristicas, min_casos=min_casos, min_defunciones=min_defunciones)
         df = calificar_municipios_letalidad_formato_largo(covid_municipal_fecha, rf, caracteristicas,
                                             modelo='RF', dia_ajuste=fecha)
         resultados.append(df)
@@ -336,14 +336,15 @@ def periodo_vulnerabilidad_con_dataframe(df, inicio, fin, min_defunciones=-1):
 
     return modelos_df, resultados_df
 
-def calcular_periodo_vulnerabilidad_2(fecha_archivo, inicio, fin, min_defunciones=-1):
+def calcular_periodo_vulnerabilidad_2(fecha_archivo, inicio, fin, min_casos=10, min_defunciones=-1):
     asegura_archivos_covid_disponibles([fecha_archivo])
     covid_municipal = serie_covid_indicadores_municipales(fecha_archivo.strftime("%y%m%d"))
 
     modelos_df, resultados_df = periodo_vulnerabilidad_con_dataframe(covid_municipal,
                                                                      inicio,
                                                                      fin,
-                                                                     min_defunciones)
+                                                                     min_casos=min_casos,
+                                                                     min_defunciones=min_defunciones)
 
     return modelos_df, resultados_df
 

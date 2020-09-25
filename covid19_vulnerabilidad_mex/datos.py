@@ -22,6 +22,8 @@ import csv
 import seaborn as sns
 import requests
 
+import logging
+
 # Cell
 DATA_DIR_COVID = 'datos/secretaria_salud/'
 
@@ -207,7 +209,7 @@ def actualizar_datos_salud(directorio_datos='./datos/secretaria_salud/', fecha_i
         archivo_ruta = os.path.join(directorio_datos, archivo_nombre)
 
         if os.path.exists(archivo_ruta):
-            print(f'Ya existe {archivo_nombre}')
+            logging.debug(f'Ya existe {archivo_nombre}')
         else:
             print(f'Bajando datos {fecha.strftime("%d.%m.%Y")}')
             url_dia = f'{fecha.strftime("%m")}/datos_abiertos_covid19_{fecha.strftime("%d.%m.%Y")}.zip'
@@ -425,13 +427,21 @@ def tabla_covid_indicadores_municipales(fecha, solo_positivos=True):
     return covid_mun_df
 
 # Cell
-def serie_covid_indicadores_municipales(fecha=None, covid_df=None, solo_positivos=True):
+def serie_covid_indicadores_municipales(fecha=None,
+                                        covid_df=None,
+                                        solo_positivos=True,
+                                        acumulativa=True,
+                                        dias=30):
 
     if fecha:
         covid_df = carga_datos_covid19_MX(fecha)
 
     covid_mun_df = agrupar_casos_municipios_por_fecha(covid_df)
-    covid_mun_df = calcular_acumulativa_casos(covid_mun_df).reset_index()
+
+    if acumulativa:
+        covid_mun_df = calcular_acumulativa_casos(covid_mun_df).reset_index(drop=True)
+    else:
+        covid_mun_df = calcular_ventana_casos(covid_mun_df, dias)
 
     mun_df = leer_variables_municipales()
     mun_df.drop(columns=['geometry'])
