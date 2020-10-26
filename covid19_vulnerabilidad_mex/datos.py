@@ -434,7 +434,11 @@ def serie_covid_indicadores_municipales(fecha=None,
                                         dias=30):
 
     if fecha:
-        covid_df = carga_datos_covid19_MX(fecha)
+        try:
+            covid_df = carga_datos_covid19_MX(fecha)
+        except KeyError as e:
+            print(f'Error con fecha {fecha}')
+            print(e)
 
     covid_mun_df = agrupar_casos_municipios_por_fecha(covid_df)
 
