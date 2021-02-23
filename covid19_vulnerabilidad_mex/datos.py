@@ -110,9 +110,14 @@ def carga_datos_covid19_MX(fecha='200601', resolver_claves='si_no_binarias'):
 
     if fecha_carga < pd.to_datetime('20-10-07', yearfirst=True):
         fecha_formato = '0412'
-    else:
+    elif ((fecha_carga >= pd.to_datetime('20-10-07', yearfirst=True))
+          & (fecha_carga < pd.to_datetime('20-11-28', yearfirst=True))):
         fecha_formato = '071020'
         nuevo_formato = True
+    else:
+        fecha_formato = '201128'
+        nuevo_formato = True
+
 
     catalogos=f'Catalogos_{fecha_formato}.xlsx'
     descriptores=f'Descriptores_{fecha_formato}.xlsx'
