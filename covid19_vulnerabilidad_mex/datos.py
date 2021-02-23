@@ -230,11 +230,12 @@ def procesa_fechas(covid_df):
     df['AÑO_INGRESO'] = df.index.year
     df['MES_INGRESO'] = df.index.month
     df['DIA_SEMANA_INGRESO'] = df.index.weekday
-    df['SEMANA_AÑO_INGRESO'] = df.index.isocalendar().week
+    df['SEMANA_AÑO_INGRESO'] = df.index.week
     df['DIA_MES_INGRESO'] = df.index.day
     df['DIA_AÑO_INGRESO'] = df.index.dayofyear
 
     return df
+
 
 # Cell
 
@@ -243,7 +244,7 @@ def actualizar_datos_salud(directorio_datos='./datos/secretaria_salud/', fecha_i
         Descarga todos los archivos de datos hasta el día anterior a la fecha actual. Si los archivos
         ya existen en el directorio entonces no los descarga.
     '''
-    url_salud_historicos = 'http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/historicos/'    
+    url_salud_historicos = 'http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/historicos/'
     ayer = date.today() - timedelta(days=1)
     fecha_inicio = datetime.strptime(fecha_inicio, "%d-%m-%Y")
     for fecha in daterange(fecha_inicio.date(), ayer):
