@@ -182,7 +182,8 @@ def carga_datos_covid19_MX(fecha='200601', resolver_claves='si_no_binarias'):
     # Necesitamos encontrar todos los campos que tienen este tipo de dato y eso
     # viene en los descriptores, en el campo FORMATO_O_FUENTE
     descriptores = pd.read_excel(diccionarios_path/descriptores,
-                                 index_col='Nº')
+                                 index_col='Nº',
+                                 engine='openpyxl')
     descriptores.columns = list(map(lambda col: col.replace(' ', '_'), descriptores.columns))
     descriptores['FORMATO_O_FUENTE'] = descriptores.FORMATO_O_FUENTE.str.strip()
 
