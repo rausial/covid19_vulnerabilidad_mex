@@ -121,6 +121,7 @@ def carga_datos_covid19_MX(fecha='200601', resolver_claves='si_no_binarias'):
     catalogos = diccionarios_path/catalogos
 
     file = os.path.join(DATA_DIR_COVID, f'{fecha}COVID19MEXICO.csv.zip')
+    print(file)
     df = pd.read_csv(file, dtype=object, encoding='latin-1')
 
     # Hay un error y el campo OTRA_COMP es OTRAS_COMP según los descriptores
@@ -237,22 +238,21 @@ def actualizar_datos_salud(directorio_datos='./datos/secretaria_salud/', fecha_i
         Descarga todos los archivos de datos hasta el día anterior a la fecha actual. Si los archivos
         ya existen en el directorio entonces no los descarga.
     '''
-    url_salud_historicos = 'http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/historicos/'
+    url_salud_historicos = 'http://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/historicos/'    
     ayer = date.today() - timedelta(days=1)
-
     fecha_inicio = datetime.strptime(fecha_inicio, "%d-%m-%Y")
     for fecha in daterange(fecha_inicio.date(), ayer):
         archivo_nombre = f'{fecha.strftime("%y%m%d")}COVID19MEXICO.csv.zip'
-
         archivo_ruta = os.path.join(directorio_datos, archivo_nombre)
-
         if os.path.exists(archivo_ruta):
             logging.debug(f'Ya existe {archivo_nombre}')
         else:
             print(f'Bajando datos {fecha.strftime("%d.%m.%Y")}')
-            url_dia = f'{fecha.strftime("%m")}/datos_abiertos_covid19_{fecha.strftime("%d.%m.%Y")}.zip'
-
+            url_dia = "{}/{}/datos_abiertos_covid19_{}.zip".format(fecha.strftime('%Y'),
+                                                                   fecha.strftime('%m'),
+                                                                   fecha.strftime('%d.%m.%Y'))
             url = url_salud_historicos + url_dia
+            print(url)
             r = requests.get(url, allow_redirects=True)
             open(archivo_ruta, 'wb').write(r.content)
 
