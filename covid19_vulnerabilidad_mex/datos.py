@@ -252,7 +252,6 @@ def actualizar_datos_salud(directorio_datos='./datos/secretaria_salud/', fecha_i
                                                                    fecha.strftime('%m'),
                                                                    fecha.strftime('%d.%m.%Y'))
             url = url_salud_historicos + url_dia
-            print(url)
             r = requests.get(url, allow_redirects=True)
             open(archivo_ruta, 'wb').write(r.content)
 
