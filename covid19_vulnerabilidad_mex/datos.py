@@ -121,7 +121,6 @@ def carga_datos_covid19_MX(fecha='200601', resolver_claves='si_no_binarias'):
     catalogos = diccionarios_path/catalogos
 
     file = os.path.join(DATA_DIR_COVID, f'{fecha}COVID19MEXICO.csv.zip')
-    print(file)
     df = pd.read_csv(file, dtype=object, encoding='latin-1')
 
     # Hay un error y el campo OTRA_COMP es OTRAS_COMP según los descriptores
@@ -144,7 +143,8 @@ def carga_datos_covid19_MX(fecha='200601', resolver_claves='si_no_binarias'):
 
     dict_catalogos = pd.read_excel(catalogos,
                               nombres_catalogos,
-                              dtype=str)
+                              dtype=str,
+                              engine='openpyxl')
 
     entidades = dict_catalogos[nombres_catalogos[0]]
     municipios = dict_catalogos[nombres_catalogos[1]]
