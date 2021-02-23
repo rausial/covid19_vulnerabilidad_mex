@@ -119,9 +119,8 @@ def carga_datos_covid19_MX(fecha='200601', resolver_claves='si_no_binarias'):
 
     diccionarios_path = Path('datos/secretaria_salud/diccionario_datos_covid19')
     catalogos = diccionarios_path/catalogos
-
-    file = os.path.join(DATA_DIR_COVID, f'{fecha}COVID19MEXICO.csv.zip')
-    df = pd.read_csv(file, dtype=object, encoding='latin-1')
+    data_file = os.path.join(DATA_DIR_COVID, f'{fecha}COVID19MEXICO.csv.zip')
+    df = pd.read_csv(data_file, dtype=object, encoding='latin-1')
 
     # Hay un error y el campo OTRA_COMP es OTRAS_COMP según los descriptores
     df.rename(columns={'OTRA_COM': 'OTRAS_COM'}, inplace=True)
