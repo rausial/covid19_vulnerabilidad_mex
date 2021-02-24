@@ -309,18 +309,28 @@ def periodo_vulnerabilidad_con_dataframe(df, inicio, fin, min_casos=20, min_defu
     for count, fecha in enumerate(fechas):
         covid_municipal_fecha = covid_municipal.query(f'FECHA_INGRESO == "{fecha.strftime("%Y-%m-%d")}"')
 
-        pls = ajustar_pls_letalidad(covid_municipal_fecha, caracteristicas, min_casos=min_casos, min_defunciones=min_defunciones)
-        df = calificar_municipios_letalidad_formato_largo(covid_municipal_fecha, pls, caracteristicas,
-                                                    modelo='PLS', dia_ajuste=fecha)
+        pls = ajustar_pls_letalidad(covid_municipal_fecha,
+                                    caracteristicas,
+                                    min_casos=min_casos,
+                                    min_defunciones=min_defunciones)
+        df = calificar_municipios_letalidad_formato_largo(covid_municipal_fecha,
+                                                          pls,
+                                                          caracteristicas,
+                                                          modelo='PLS', dia_ajuste=fecha)
         resultados.append(df)
         modelo = pd.DataFrame({'caracteristica': caracteristicas, 'coef': pls.coef_})
         modelo['dia_ajuste'] = fecha
         modelo['modelo'] = 'PLS'
         modelos.append(modelo)
 
-        rf = ajustar_rf_letalidad(covid_municipal_fecha, caracteristicas, min_casos=min_casos, min_defunciones=min_defunciones)
-        df = calificar_municipios_letalidad_formato_largo(covid_municipal_fecha, rf, caracteristicas,
-                                            modelo='RF', dia_ajuste=fecha)
+        rf = ajustar_rf_letalidad(covid_municipal_fecha,
+                                  caracteristicas,
+                                  min_casos=min_casos,
+                                  min_defunciones=min_defunciones)
+        df = calificar_municipios_letalidad_formato_largo(covid_municipal_fecha,
+                                                          rf, caracteristicas,
+                                                          modelo='RF',
+                                                          dia_ajuste=fecha)
         resultados.append(df)
         modelo = pd.DataFrame({'caracteristica': caracteristicas, 'coef': rf.feature_importances_})
         modelo['dia_ajuste'] = fecha
@@ -347,6 +357,7 @@ def calcular_periodo_vulnerabilidad_2(fecha_archivo, inicio, fin, min_casos=10, 
                                                                      min_defunciones=min_defunciones)
 
     return modelos_df, resultados_df
+
 
 # Cell
 
