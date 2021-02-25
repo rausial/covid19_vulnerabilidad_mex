@@ -311,12 +311,12 @@ def calcular_periodo_vulnerabilidad(inicio, fin, min_defunciones=-1):
 # Cell
 
 
-def periodo_vulnerabilidad_con_dataframe(df, inicio, fin, columna='tasa_covid_letal',
+def periodo_vulnerabilidad_con_dataframe(covid_municipal, inicio, fin, columna='tasa_covid_letal',
                                          min_casos=20, min_defunciones=-1):
     """Calcula la vulnerabilidad (PLS) para todo el periodo usando como objetivo
        la columna que se le pase.
 
-    :param df: el dataframe con los datos para ajustar el modelo
+    :param df: el dataframe con los datos para ajustar el modelo. Debe traer ya las tasas municipales
     :type df: pd.DataFrame
     :param inicio: fecha inicial (Y-m-d)
     :type inicio: str
@@ -336,13 +336,13 @@ def periodo_vulnerabilidad_con_dataframe(df, inicio, fin, columna='tasa_covid_le
     """
     inicio = pd.to_datetime(inicio, yearfirst=True)
     fin = pd.to_datetime(fin, yearfirst=True)
-    fin = min(df.FECHA_INGRESO.max(), fin)
+    fin = min(covid_municipal.FECHA_INGRESO.max(), fin)
     fechas = pd.date_range(inicio, fin)
     resultados = []
     modelos = []
     f = IntProgress(min=0, max=len(fechas) - 1) # instantiate the bar
     display(f) # display the bar
-    covid_municipal = agregar_tasas_municipales(df)
+    # covid_municipal = agregar_tasas_municipales(df)
     caracteristicas = caracteristicas_modelos_municipios(covid_municipal)
     for count, fecha in enumerate(fechas):
         covid_municipal_fecha = covid_municipal.query(
