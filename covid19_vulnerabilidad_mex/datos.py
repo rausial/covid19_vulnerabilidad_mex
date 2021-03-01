@@ -422,22 +422,17 @@ def calcular_ventana_casos(casos_municipios_diarios, dias_ventana=30):
 
 # Cell
 
-def leer_variables_municipales():
-    variables_municipales = pd.read_csv('datos/municipios/indicadores.csv', index_col=False,
+def leer_variables_municipales(path_indicadores):
+    variables_municipales = pd.read_csv(path_indicadores, index_col=False,
                                         dtype={'cvegeo': str, 'entidad_cv': str,
                                               'municipio_cvegeo': str, 'entidad_cvegeo': str},
                                         encoding='iso8859_2')
     arregla_cvegeo(variables_municipales, 'municipio_cvegeo')
     arregla_cvegeo(variables_municipales, extraer_ent=True)
-
     variables_municipales.drop(columns=['municipio_cvegeo', 'entidad_cv'], inplace=True)
     marco_2019 = gpd.read_file('datos/municipios/marco_2019.json')
     marco_2019.rename(columns={'municipio_cvegeo': 'cvegeo'}, inplace=True)
-    # marco_2019 = marco_2019[['municipio_cvegeo', 'geometry', 'municipio_nombre']]
     variables_municipales = variables_municipales.merge(marco_2019, on='cvegeo')
-
-    # variables_municipales.drop(columns='nom_mun', inplace=True)
-    # variables_municipales.rename(columns={'municipio_nombre': 'nom_mun'}, inplace=True)
     return variables_municipales
 
 # Cell
@@ -470,7 +465,8 @@ def serie_covid_indicadores_municipales(fecha=None,
                                         covid_df=None,
                                         solo_positivos=True,
                                         acumulativa=True,
-                                        dias=30):
+                                        dias=30,
+                                        indicadores='datos/municipios/indicadores.csv'):
 
     if fecha:
         try:
@@ -486,7 +482,7 @@ def serie_covid_indicadores_municipales(fecha=None,
     else:
         covid_mun_df = calcular_ventana_casos(covid_mun_df, dias)
 
-    mun_df = leer_variables_municipales()
+    mun_df = leer_variables_municipales(indicadores)
     mun_df.drop(columns=['geometry'])
     covid_mun_df = unir_casos_estadisticas_municipales(covid_mun_df, mun_df)
     covid_mun_df.drop(columns='CVE_MUN', inplace=True)
