@@ -312,7 +312,7 @@ def calcular_periodo_vulnerabilidad(inicio, fin, min_defunciones=-1):
 
 
 def periodo_vulnerabilidad_con_dataframe(covid_municipal, inicio, fin, columna='tasa_covid_letal',
-                                         min_casos=20, min_defunciones=-1):
+                                         min_casos=20, min_defunciones=-1, rf=True):
     """Calcula la vulnerabilidad (PLS) para todo el periodo usando como objetivo
        la columna que se le pase.
 
@@ -328,6 +328,8 @@ def periodo_vulnerabilidad_con_dataframe(covid_municipal, inicio, fin, columna='
     :type min_casos: int
     :param min_defunciones: Número mínimo de defunciones para considerar a un municipio
     :type min_defunciones: int
+    :param rf: True/False ajustar también un nmodelo de Random Forest a los dato
+    :type rf: bool
 
     :returns: Un DataFrame igual que el de entrada pero cun una columna extra con el resultado
               del modelo. La columna se llama 'valor_{columna}'
@@ -361,20 +363,20 @@ def periodo_vulnerabilidad_con_dataframe(covid_municipal, inicio, fin, columna='
         modelo['dia_ajuste'] = fecha
         modelo['modelo'] = 'PLS'
         modelos.append(modelo)
-
-        rf = ajustar_rf_letalidad(covid_municipal_fecha,
-                                  caracteristicas,
-                                  min_casos=min_casos,
-                                  min_defunciones=min_defunciones)
-        df = calificar_municipios_letalidad_formato_largo(covid_municipal_fecha,
-                                                          rf, caracteristicas,
-                                                          modelo='RF',
-                                                          dia_ajuste=fecha)
-        resultados.append(df)
-        modelo = pd.DataFrame({'caracteristica': caracteristicas, 'coef': rf.feature_importances_})
-        modelo['dia_ajuste'] = fecha
-        modelo['modelo'] = 'RF'
-        modelos.append(modelo)
+        if rf:
+            rf = ajustar_rf_letalidad(covid_municipal_fecha,
+                                    caracteristicas,
+                                    min_casos=min_casos,
+                                    min_defunciones=min_defunciones)
+            df = calificar_municipios_letalidad_formato_largo(covid_municipal_fecha,
+                                                            rf, caracteristicas,
+                                                            modelo='RF',
+                                                            dia_ajuste=fecha)
+            resultados.append(df)
+            modelo = pd.DataFrame({'caracteristica': caracteristicas, 'coef': rf.feature_importances_})
+            modelo['dia_ajuste'] = fecha
+            modelo['modelo'] = 'RF'
+            modelos.append(modelo)
         f.value = count
 
     resultados_df = pd.concat(resultados, ignore_index=True)
