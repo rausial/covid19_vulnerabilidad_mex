@@ -127,3 +127,6 @@ total_camas,"Unidades económicas dedicadas principalmente a proporcionar servic
 total_camas_publicos,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
 total_de_camas_privados,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
 total_hospitales_publicos,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
+pct_hipertension,Porcentaje de personas con hipertensión
+pct_diabetes,Porcentaje de personas con diabetes
+pct_obesidad,Porcentaje de personas con obesidad
