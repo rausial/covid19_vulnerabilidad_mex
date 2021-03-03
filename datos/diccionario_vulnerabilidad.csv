@@ -1,0 +1,129 @@
+campo,descriptor
+cvegeo,Clave geografica 
+pt_2000,"población total,2000"
+pt_2005,"población total,2005"
+pt_2010,"población total,2010"
+pt_2015,"población total,2015"
+an_2000,"15 años y más analfabetas,2000"
+an_2005,"15 años y más analfabetas,2005"
+an_2010,"15 años y más analfabetas,2010"
+an_2015,"15 años y más analfabetas,2015"
+ne614_00,"6 a 14 años que no asisten a la escuela,2000"
+ne614_05,"6 a 14 años que no asisten a la escuela,2005"
+ne614_010,"6 a 14 años que no asisten a la escuela,2010"
+ne614_015,"6 a 14 años que no asisten a la escuela,2015"
+bi_2000,"15 años y más con educación básica incompleta,2000"
+bi_2005,"15 años y más con educación básica incompleta,2005"
+bi_2010,"15 años y más con educación básica incompleta,2010"
+bi_2015,"15 años y más con educación básica incompleta,2015"
+sins_00,"Porcentaje de Población  sin derechohabiencia a salud,2000"
+sins_05,"Porcentaje de Población  sin derechohabiencia a salud,2005"
+sins_10,"Porcentaje de Población  sin derechohabiencia a salud,2010"
+sins_15,"Porcentaje de Población  sin derechohabiencia a salud,2015"
+vpt_2000,"Viviendas piso  de tierra,2000"
+vpt_2005,"Viviendas piso  de tierra,2005"
+vpt_2010,"Viviendas piso  de tierra,2010"
+vpt_2015,"Viviendas piso  de tierra,2015"
+vns_2000,"Viviendas sin sanitario,2000"
+vns_2005,"Viviendas sin sanitario,2005"
+vns_2010,"Viviendas sin sanitario,2010"
+vns_2015,"Viviendas sin sanitario,2015"
+vna_2000,"Viviendas sin Agua,2000"
+vna_2005,"Viviendas sin Agua,2005"
+vna_2010,"Viviendas sin Agua,2010"
+vna_2015,"Viviendas sin Agua,2015"
+vnd_2000,"Viviendas que no disponen de drenaje,2000"
+vnd_2005,"Viviendas que no disponen de drenaje,2005"
+vnd_2010,"Viviendas que no disponen de drenaje,2010"
+vnd_2015,"Viviendas que no disponen de drenaje,2015"
+vne_2000,"Viviendas que no disponen de energía eléctrica,2000"
+vne_2005,"Viviendas que no disponen de energía eléctrica,2005"
+vne_2010,"Viviendas que no disponen de energía eléctrica,2010"
+vne_2015,"Viviendas que no disponen de energía eléctrica,2015"
+vnl_2000,"Viviendas que no disponen de lavadora,2000"
+vnl_2005,"Viviendas que no disponen de lavadora,2005"
+vnl_2010,"Viviendas que no disponen de lavadora,2010"
+vnl_2015,"Viviendas que no disponen de lavadora,2015"
+vnr_2000,"Viviendas que no disponen de refrigerador,2000"
+vnr_2005,"Viviendas que no disponen de refrigerador,2005"
+vnr_2010,"Viviendas que no disponen de refrigerador,2010"
+vnr_2015,"Viviendas que no disponen de refrigerador,2015"
+irs_2000,"Índice de rezago social,2000"
+irs_2005,"Índice de rezago social,2005"
+irs_2010,"Índice de rezago social,2010"
+irs_2015,"Índice de rezago social,2015"
+grs_2000,"Grado de rezago social,2000"
+grs_2005,"Grado de rezago social,2005"
+grs_2010,"Grado de rezago social,2010"
+grs_2015,"Grado de rezago social,2015"
+lmex_2000,"Lugar que ocupa en el contexto nacional,2000"
+lmex_2005,"Lugar que ocupa en el contexto nacional,2005"
+lmex_2010,"Lugar que ocupa en el contexto nacional,2010"
+lmex_2015,"Lugar que ocupa en el contexto nacional,2015"
+pobreza,% Población en situación de pobreza
+pobreza_pob,Población en situación de pobreza
+pobreza_e,%Población en situación de pobreza extrema
+pobreza_e_pob,Población en situación de pobreza extrema
+pobreza_m,%Población en situación de pobreza moderada
+pobreza_m_pob,Población en situación de pobreza moderada
+vul_car,%Población vulnerable por carencias sociales
+vul_car_pob,Población vulnerable por carencias sociales
+vul_ing,%Población vulnerable por ingresos
+vul_ing_pob,Población vulnerable por ingresos
+npnv,%Población no pobre y no vulnerable
+npnv_pob,Población no pobre y no vulnerable
+ic_rezedu,%Indicadores de carencia social  Rezago educativo
+ic_rezedu_pob,Indicadores de carencia social  Rezago educativo
+ic_asalud,%Carencia por acceso a los servicios de salud
+ic_asalud_pob,Carencia por acceso a los servicios de salud
+ic_segsoc,%Carencia por acceso a la seguridad social
+ic_segsoc_pob,Carencia por acceso a la seguridad social
+ic_cv,%Carencia por calidad y espacios en la vivienda
+ic_cv_pob,Carencia por calidad y espacios en la vivienda
+ic_sbv,%Carencia por acceso a los servicios básicos en la vivienda
+ic_sbv_pob,Carencia por acceso a los servicios básicos en la vivienda
+ic_ali,%Carencia por acceso a la alimentación
+ic_ali_pob,Carencia por acceso a la alimentación
+carencias,%Población con al menos una carencia social
+carencias_pob,Población con al menos una carencia social
+carencias3,%Población con al menos tres carencias sociales
+carencias3_pob,Población con al menos tres carencias sociales
+plb,%Población con igreso inferior a la línea de bienestar
+plb_pob,Población con igreso inferior a la línea de bienestar
+plbm,%Población con ingreso inferior a la línea de bienestar mínimo
+plbm_pob,Población con ingreso inferior a la línea de bienestar mínimo
+consulto_1,"Unidades económicas de dicadas principalmente a proporcionar servicios de consulta médica externa general o especializada (como servicios médicos especializados en cardiología, gastroenterología, otorrinolaringología, ginecología, homeopatí­a, nutrición, psiquiatrí­a, oftalmología) prestados por profesionistas con estudios mí­nimos de licenciatura en medicina."
+consultori,"Unidades económicas de dicadas principalmente a proporcionar servicios de consulta médica externa general o especializada (como servicios médicos especializados encardiología, gastroenterología, otorrinolaringología, ginecología, homeopatí­a, nutrición, psiquiatrí­a, oftalmología) prestados por profesionistas con estudios mí­nimos de licenciatura en medicina."
+farmacias,"Unidades económicas dedicadas principalmente al comercio al por menor de medicamentos, productos naturistas y complementos alimenticios para consumo humano."
+hospitales_imss,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
+hospitales_issste,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
+hospitales_pemex,"Unidades econmicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalizaci³n de los pacientes."
+hospitales_privados,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
+hospitales_sedena,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
+hospitales_semar,"Unidades econmicas dedicadas principalmente a proporcionar servicios mdicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
+hospitales_sme,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
+hospitales_ssa,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
+i_vuln_econo,
+num_camas_pp,
+num_cons_priv_pp,
+num_cons_pub_pp,
+num_farmacias_pp,
+num_hosp_pp,
+p_mayores,
+p_niños_m,
+p_seg_popular,
+p_sin_derech,Total de personas que no tienen derecho a recibir servicios mdicos en ninguna institucin pblica o privada.
+pob01,
+pob_menore,Personas de 0 a 5 años de edad.
+porc_carencia_salud,"Se considera que una persona se encuentra en situación de carencia por acceso a los servicios de salud cuando: 
+No cuenta con adscripción o derecho a recibir servicios médicos de alguna institución que los presta, incluyendo el Seguro Popular, las instituciones públicas de seguridad social (IMSS, ISSSTE federal o estatal, Pemex, Ejí©rcito o Marina) o los servicios médicos privados."
+sin_dere_1,"Total de personas que tienen derecho a recibir servicios médicos en la secretarí­a de salud, mediante el sistema de protección en salud (seguro popular)."
+sin_derech,Total de personas que no tienen derecho a recibir servicios médicos en ninguna institución pública o privada.
+tasa_cancer,"Tumores (neoplasias), Tumores malignos del labio, de la cavidad bucal y de la faringe, Tumor maligno del esófago, Tumor maligno del estómago, Tumor maligno del colon, del recto y del ano, Tumor maligno del hí­gado y de las ví­as biliares intrahepáticas, Tumor maligno del páncreas, Tumor maligno de la laringe, Tumor maligno de la tráquea, de los bronquios y del pulmón, Melanoma maligno de la piel, Tumor maligno de la mama, Tumor maligno del cuello del útero, Tumor maligno de otras partes y de las no especificadas del útero, Tumor maligno del ovario, Tumor maligno de la próstata, Tumor maligno de la vejiga urinaria, Tumor maligno de las meninges, del encí©falo y de otras partes del sistema nervioso central, Linfoma no Hodgkin, Mieloma múltiple y tumores malignos de cí©lulas plasmáticas y Leucemia."
+tasa_cardiacas,"Enfermedades del sistema circulatorio, Fiebre reumática aguda y enfermedades cardí­acas reumáticas crónicas, Enfermedades hipertensivas, Enfermedades isquí©micas del corazón, Otras enfermedades del corazón, Enfermedades cerebrovasculares y Aterosclerosis."
+tasa_diabetes,Diabetes mellitus.
+tasa_pulmonares,"Enfermedades del sistema respiratorio, Influenza (gripe), Neumoní­a, Otras infecciones agudas de las ví­as respiratorias inferiores y Enfermedades crónicas de las ví­as respiratorias inferiores."
+total_camas,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
+total_camas_publicos,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
+total_de_camas_privados,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
+total_hospitales_publicos,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes."
