@@ -1,0 +1,26 @@
+name: null
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - geopandas
+  - descartes
+  - scikit-learn
+  - seaborn
+  - mapclassify
+  - scikit-image
+  - jupyterlab
+  - matplotlib
+  - nodejs
+  - autopep8
+  - xlrd
+  - openpyxl
+  - statsmodels
+  - pip
+  - pip:
+    - fastcore
+    - pillow<7
+    - imageio
+    - pygifsicle
+    - ipywidgets
