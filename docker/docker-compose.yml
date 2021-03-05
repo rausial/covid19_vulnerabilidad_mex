@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  jupyterlab-server:
+    build:
+      args:
+        - username=datalab
+        - uid=1000
+        - gid=100
+      context: ../
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8888:8888"
+    volumes:
+      - ../bin:/home/datalab/app/bin
+      - ../covid19_vulnerabilidad_mex:/home/datalab/app/covid19_vulnerabilidad_mex
+      - ../datos:/home/datalab/app/datos
+      - ../docs:/home/datalab/app/docs
+      - ../img:/home/datalab/app/img
+      - ../output:/home/datalab/app/output
+      - ../:/home/datalab/app/
+    init: true
+    stdin_open: true
+    tty: true
