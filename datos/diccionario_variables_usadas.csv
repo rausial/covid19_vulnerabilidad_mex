@@ -29,8 +29,8 @@ npnv,%Población no pobre y no vulnerable,Socioeconomic
 npnv_pob,Población no pobre y no vulnerable,Socioeconomic
 ic_rezedu,%Indicadores de carencia social  Rezago educativo,Socioeconomic
 ic_rezedu_pob,Indicadores de carencia social  Rezago educativo,Socioeconomic
-ic_asalud,%Carencia por acceso a los servicios de salud,Socioeconomic
-ic_asalud_pob,Carencia por acceso a los servicios de salud,Socioeconomic
+ic_asalud,%Carencia por acceso a los servicios de salud,Health Care
+ic_asalud_pob,Carencia por acceso a los servicios de salud,Health Care
 ic_segsoc,%Carencia por acceso a la seguridad social,Health Care
 ic_segsoc_pob,Carencia por acceso a la seguridad social,Health Care
 ic_cv,%Carencia por calidad y espacios en la vivienda,Housing and hygiene
