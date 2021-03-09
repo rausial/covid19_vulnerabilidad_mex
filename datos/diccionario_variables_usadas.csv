@@ -1,5 +1,5 @@
 campo,descriptor,dimension
-cvegeo,Clave geografica ,
+cvegeo,"Clave geografica ",
 pt_2015,"población total,2015",Demographic
 an_2015,"15 años y más analfabetas,2015",Socioeconomic
 ne614_015,"6 a 14 años que no asisten a la escuela,2015",Socioeconomic
@@ -62,3 +62,7 @@ total_hospitales_publicos,"Unidades económicas dedicadas principalmente a propo
 pct_hipertension,Porcentaje de personas con hipertensión,Epidemiological
 pct_diabetes,Porcentaje de personas con diabetes,Epidemiological
 pct_obesidad,Porcentaje de personas con obesidad,Epidemiological
+tasa_cardiacas,,Epidemiological
+tasa_pulmonares,,Epidemiological
+tasa_diabetes,,Epidemiological
+tasa_cancer,,Epidemiological
