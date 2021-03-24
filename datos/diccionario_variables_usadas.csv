@@ -1,68 +1,68 @@
-campo,descriptor,dimension
-cvegeo,"Clave geografica ",
-pt_2015,"población total,2015",Demographic
-an_2015,"15 años y más analfabetas,2015",Socioeconomic
-ne614_015,"6 a 14 años que no asisten a la escuela,2015",Socioeconomic
-bi_2015,"15 años y más con educación básica incompleta,2015",Socioeconomic
-sins_15,"Porcentaje de Población  sin derechohabiencia a salud,2015",Health Care
-vpt_2015,"Viviendas piso  de tierra,2015",Socioeconomic
-vns_2015,"Viviendas sin sanitario,2015",Housing and hygiene
-vna_2015,"Viviendas sin Agua,2015",Housing and hygiene
-vnd_2015,"Viviendas que no disponen de drenaje,2015",Housing and hygiene
-vne_2015,"Viviendas que no disponen de energía eléctrica,2015",Housing and hygiene
-vnl_2015,"Viviendas que no disponen de lavadora,2015",Housing and hygiene
-vnr_2015,"Viviendas que no disponen de refrigerador,2015",Housing and hygiene
-irs_2015,"Índice de rezago social,2015",Socioeconomic
-grs_2015,"Grado de rezago social,2015",Socioeconomic
-lmex_2015,"Lugar que ocupa en el contexto nacional,2015",Socioeconomic
-pobreza,% Población en situación de pobreza,Socioeconomic
-pobreza_pob,Población en situación de pobreza,Socioeconomic
-pobreza_e,%Población en situación de pobreza extrema,Socioeconomic
-pobreza_e_pob,Población en situación de pobreza extrema,Socioeconomic
-pobreza_m,%Población en situación de pobreza moderada,Socioeconomic
-pobreza_m_pob,Población en situación de pobreza moderada,Socioeconomic
-vul_car,%Población vulnerable por carencias sociales,Socioeconomic
-vul_car_pob,Población vulnerable por carencias sociales,Socioeconomic
-vul_ing,%Población vulnerable por ingresos,Socioeconomic
-vul_ing_pob,Población vulnerable por ingresos,Socioeconomic
-npnv,%Población no pobre y no vulnerable,Socioeconomic
-npnv_pob,Población no pobre y no vulnerable,Socioeconomic
-ic_rezedu,%Indicadores de carencia social  Rezago educativo,Socioeconomic
-ic_rezedu_pob,Indicadores de carencia social  Rezago educativo,Socioeconomic
-ic_asalud,%Carencia por acceso a los servicios de salud,Health Care
-ic_asalud_pob,Carencia por acceso a los servicios de salud,Health Care
-ic_segsoc,%Carencia por acceso a la seguridad social,Health Care
-ic_segsoc_pob,Carencia por acceso a la seguridad social,Health Care
-ic_cv,%Carencia por calidad y espacios en la vivienda,Housing and hygiene
-ic_cv_pob,Carencia por calidad y espacios en la vivienda,Housing and hygiene
-ic_sbv,%Carencia por acceso a los servicios básicos en la vivienda,Housing and hygiene
-ic_sbv_pob,Carencia por acceso a los servicios básicos en la vivienda,Housing and hygiene
-ic_ali,%Carencia por acceso a la alimentación,Housing and hygiene
-ic_ali_pob,Carencia por acceso a la alimentación,Housing and hygiene
-carencias,%Población con al menos una carencia social,Socioeconomic
-carencias_pob,Población con al menos una carencia social,Socioeconomic
-carencias3,%Población con al menos tres carencias sociales,Socioeconomic
-carencias3_pob,Población con al menos tres carencias sociales,Socioeconomic
-plb,%Población con igreso inferior a la línea de bienestar,Socioeconomic
-plb_pob,Población con igreso inferior a la línea de bienestar,Socioeconomic
-plbm,%Población con ingreso inferior a la línea de bienestar mínimo,Socioeconomic
-plbm_pob,Población con ingreso inferior a la línea de bienestar mínimo,Socioeconomic
-consulto_1,"Unidades económicas de dicadas principalmente a proporcionar servicios de consulta médica externa general o especializada (como servicios médicos especializados en cardiología, gastroenterología, otorrinolaringología, ginecología, homeopatí­a, nutrición, psiquiatrí­a, oftalmología) prestados por profesionistas con estudios mí­nimos de licenciatura en medicina.",Health Care
-consultori,"Unidades económicas de dicadas principalmente a proporcionar servicios de consulta médica externa general o especializada (como servicios médicos especializados encardiología, gastroenterología, otorrinolaringología, ginecología, homeopatí­a, nutrición, psiquiatrí­a, oftalmología) prestados por profesionistas con estudios mí­nimos de licenciatura en medicina.",Health Care
-farmacias,"Unidades económicas dedicadas principalmente al comercio al por menor de medicamentos, productos naturistas y complementos alimenticios para consumo humano.",Health Care
-pob01,,Socioeconomic
-pob_menore,Personas de 0 a 5 años de edad.,Demographic
+campo,descriptor,dimension,display_name
+cvegeo,Clave geografica ,,
+pt_2015,"población total,2015",Demographic,Population
+an_2015,"15 años y más analfabetas,2015",Socioeconomic,Illiterate over 15
+ne614_015,"6 a 14 años que no asisten a la escuela,2015",Socioeconomic,Aged 6 to 14 not at school
+bi_2015,"15 años y más con educación básica incompleta,2015",Socioeconomic,Over 15 with incomplete basic education
+sins_15,"Porcentaje de Población  sin derechohabiencia a salud,2015",Health Care,No health insurance
+vpt_2015,"Viviendas piso  de tierra,2015",Socioeconomic,Houses with dirt floor
+vns_2015,"Viviendas sin sanitario,2015",Housing and hygiene,Households without toilette
+vna_2015,"Viviendas sin Agua,2015",Housing and hygiene,Households without running water
+vnd_2015,"Viviendas que no disponen de drenaje,2015",Housing and hygiene,Households without public drainage
+vne_2015,"Viviendas que no disponen de energía eléctrica,2015",Housing and hygiene,Households without electricity
+vnl_2015,"Viviendas que no disponen de lavadora,2015",Housing and hygiene,Households without washer
+vnr_2015,"Viviendas que no disponen de refrigerador,2015",Housing and hygiene,Households without fridge
+irs_2015,"Índice de rezago social,2015",Socioeconomic,Social lag index
+grs_2015,"Grado de rezago social,2015",Socioeconomic,Social lag degree
+lmex_2015,"Lugar que ocupa en el contexto nacional,2015",Socioeconomic,Place within national context
+pobreza,% Población en situación de pobreza,Socioeconomic,Poverty (%)
+pobreza_pob,Población en situación de pobreza,Socioeconomic,Poverty (total)
+pobreza_e,%Población en situación de pobreza extrema,Socioeconomic,Extreme poverty (%)
+pobreza_e_pob,Población en situación de pobreza extrema,Socioeconomic,Extreme poverty (total)
+pobreza_m,%Población en situación de pobreza moderada,Socioeconomic,Moderate poverty (%)
+pobreza_m_pob,Población en situación de pobreza moderada,Socioeconomic,Moderate poverty (total)
+vul_car,%Población vulnerable por carencias sociales,Socioeconomic,Vulnerable due to social lags (%)
+vul_car_pob,Población vulnerable por carencias sociales,Socioeconomic,Vulnerable due to social lags (total)
+vul_ing,%Población vulnerable por ingresos,Socioeconomic,Vulnerable due to income (%)
+vul_ing_pob,Población vulnerable por ingresos,Socioeconomic,Vulnerable due to income (total)
+npnv,%Población no pobre y no vulnerable,Socioeconomic,Not poor nor vulnerable (%)
+npnv_pob,Población no pobre y no vulnerable,Socioeconomic,Not poor nor vulnerable (total)
+ic_rezedu,%Indicadores de carencia social  Rezago educativo,Socioeconomic,Educational lag (%)
+ic_rezedu_pob,Indicadores de carencia social  Rezago educativo,Socioeconomic,Educational lag (total)
+ic_asalud,%Carencia por acceso a los servicios de salud,Health Care,Lack in health care access (%)
+ic_asalud_pob,Carencia por acceso a los servicios de salud,Health Care,Lack in health care access (total)
+ic_segsoc,%Carencia por acceso a la seguridad social,Health Care,Lack in social security (%)
+ic_segsoc_pob,Carencia por acceso a la seguridad social,Health Care,Lack in social security (total)
+ic_cv,%Carencia por calidad y espacios en la vivienda,Housing and hygiene,Lack in house quality (%)
+ic_cv_pob,Carencia por calidad y espacios en la vivienda,Housing and hygiene,Lack in house quality (total)
+ic_sbv,%Carencia por acceso a los servicios básicos en la vivienda,Housing and hygiene,Lack of basic services (%)
+ic_sbv_pob,Carencia por acceso a los servicios básicos en la vivienda,Housing and hygiene,Lack of basic services (total)
+ic_ali,%Carencia por acceso a la alimentación,Housing and hygiene,Lack of adequate nutrition (%)
+ic_ali_pob,Carencia por acceso a la alimentación,Housing and hygiene,Lack of adequate nutrition (total)
+carencias,%Población con al menos una carencia social,Socioeconomic,Population with at least one lack (%)
+carencias_pob,Población con al menos una carencia social,Socioeconomic,Population with at least one lack (total)
+carencias3,%Población con al menos tres carencias sociales,Socioeconomic,Population with at least three lacks (%)
+carencias3_pob,Población con al menos tres carencias sociales,Socioeconomic,Population with at least three lacks (total)
+plb,%Población con igreso inferior a la línea de bienestar,Socioeconomic,Population under wellness line (%)
+plb_pob,Población con igreso inferior a la línea de bienestar,Socioeconomic,Population under wellness line (total)
+plbm,%Población con ingreso inferior a la línea de bienestar mínimo,Socioeconomic,Population under minimum wellness line (%)
+plbm_pob,Población con ingreso inferior a la línea de bienestar mínimo,Socioeconomic,Population under minimum wellness line (total)
+consulto_1,"Unidades económicas de dicadas principalmente a proporcionar servicios de consulta médica externa general o especializada (como servicios médicos especializados en cardiología, gastroenterología, otorrinolaringología, ginecología, homeopatí­a, nutrición, psiquiatrí­a, oftalmología) prestados por profesionistas con estudios mí­nimos de licenciatura en medicina.",Health Care,Public medical practice offices
+consultori,"Unidades económicas de dicadas principalmente a proporcionar servicios de consulta médica externa general o especializada (como servicios médicos especializados encardiología, gastroenterología, otorrinolaringología, ginecología, homeopatí­a, nutrición, psiquiatrí­a, oftalmología) prestados por profesionistas con estudios mí­nimos de licenciatura en medicina.",Health Care,Private medical practice offices
+farmacias,"Unidades económicas dedicadas principalmente al comercio al por menor de medicamentos, productos naturistas y complementos alimenticios para consumo humano.",Health Care,Pharmacies
+pob01,,Socioeconomic,
+pob_menore,Personas de 0 a 5 años de edad.,Demographic,Population under 5 years
 porc_carencia_salud,"Se considera que una persona se encuentra en situación de carencia por acceso a los servicios de salud cuando: 
-No cuenta con adscripción o derecho a recibir servicios médicos de alguna institución que los presta, incluyendo el Seguro Popular, las instituciones públicas de seguridad social (IMSS, ISSSTE federal o estatal, Pemex, Ejí©rcito o Marina) o los servicios médicos privados.",Socioeconomic
-sin_dere_1,"Total de personas que tienen derecho a recibir servicios médicos en la secretarí­a de salud, mediante el sistema de protección en salud (seguro popular).",Health Care
-sin_derech,Total de personas que no tienen derecho a recibir servicios médicos en ninguna institución pública o privada.,Health Care
-total_camas_publicos,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes.",Health Care
-total_camas_privados,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes.",Health Care
-total_hospitales_publicos,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes.",Health Care
-pct_hipertension,Porcentaje de personas con hipertensión,Epidemiological
-pct_diabetes,Porcentaje de personas con diabetes,Epidemiological
-pct_obesidad,Porcentaje de personas con obesidad,Epidemiological
-tasa_cardiacas,,Epidemiological
-tasa_pulmonares,,Epidemiological
-tasa_diabetes,,Epidemiological
-tasa_cancer,,Epidemiological
+No cuenta con adscripción o derecho a recibir servicios médicos de alguna institución que los presta, incluyendo el Seguro Popular, las instituciones públicas de seguridad social (IMSS, ISSSTE federal o estatal, Pemex, Ejí©rcito o Marina) o los servicios médicos privados.",Socioeconomic,Lack in health care access (%)
+sin_dere_1,"Total de personas que tienen derecho a recibir servicios médicos en la secretarí­a de salud, mediante el sistema de protección en salud (seguro popular).",Health Care,People without public health insurance
+sin_derech,Total de personas que no tienen derecho a recibir servicios médicos en ninguna institución pública o privada.,Health Care,People without any health insurance
+total_camas_publicos,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes.",Health Care,Public hospital beds
+total_camas_privados,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes.",Health Care,Private hospital beds
+total_hospitales_publicos,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes.",Health Care,Public hospitals
+pct_hipertension,Porcentaje de personas con hipertensión,Epidemiological,Prevalence of hypertension
+pct_diabetes,Porcentaje de personas con diabetes,Epidemiological,Prevalence of diabetes
+pct_obesidad,Porcentaje de personas con obesidad,Epidemiological,Prevalence of obesity
+tasa_cardiacas,,Epidemiological,
+tasa_pulmonares,,Epidemiological,
+tasa_diabetes,,Epidemiological,
+tasa_cancer,,Epidemiological,
