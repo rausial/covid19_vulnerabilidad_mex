@@ -1,0 +1,27 @@
+campo,descriptor,COVID-SVI ,BASE-SVI,display_name
+pt_2015,"población total,2015",Demographic,,Population
+pob_menore,Personas de 0 a 5 años de edad.,Demographic,Household Composition,Population under 5 years
+pob_mayores,Personas de más de 65,Demographic,Household Composition,Population over 65 years
+pct_hipertension,Porcentaje de personas con hipertensión,Epidemiological,,Prevalence of hypertension
+pct_diabetes,Porcentaje de personas con diabetes,Epidemiological,,Prevalence of diabetes
+pct_obesidad,Porcentaje de personas con obesidad,Epidemiological,,Prevalence of obesity
+ic_asalud,%Carencia por acceso a los servicios de salud,Health Care,,Lack in health care access (%)
+ic_segsoc,%Carencia por acceso a la seguridad social,Health Care,,Lack in social security (%)
+total_camas_publicos,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes.",Health Care,,Public hospital beds
+total_camas_privados,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes.",Health Care,,Private hospital beds
+total_hospitales_publicos,"Unidades económicas dedicadas principalmente a proporcionar servicios médicos, que cuentan con las instalaciones para la hospitalización de los pacientes.",Health Care,,Public hospitals
+vna_2015,"Viviendas sin Agua,2015",Housing and hygiene,Housing & Transportation,Households without running water
+vnd_2015,"Viviendas que no disponen de drenaje,2015",Housing and hygiene,Housing & Transportation,Households without public drainage
+vne_2015,"Viviendas que no disponen de energía eléctrica,2015",Housing and hygiene,Housing & Transportation,Households without electricity
+ic_cv,%Carencia por calidad y espacios en la vivienda,Housing and hygiene,Housing & Transportation,Lack in house quality (%)
+ic_sbv,%Carencia por acceso a los servicios básicos en la vivienda,Housing and hygiene,Housing & Transportation,Lack of basic services (%)
+an_2015,"15 años y más analfabetas,2015",Socioeconomic,Socioeconomic,Illiterate over 15
+vpt_2015,"Viviendas piso  de tierra,2015",,Housing & Transportation,Houses with dirt floor
+lmex_2015,"Lugar que ocupa en el contexto nacional,2015",Socioeconomic,,Place within national context
+pobreza,% Población en situación de pobreza,Socioeconomic,Socioeconomic,Poverty (%)
+vul_ing,%Población vulnerable por ingresos,Socioeconomic,Socioeconomic,Vulnerable due to income (%)
+npnv,%Población no pobre y no vulnerable,Socioeconomic,Socioeconomic,Not poor nor vulnerable (%)
+ic_rezedu,%Indicadores de carencia social  Rezago educativo,Socioeconomic,,Educational lag (%)
+carencias,%Población con al menos una carencia social,Socioeconomic,Socioeconomic,Population with at least one lack (%)
+plbm,%Población con ingreso inferior a la línea de bienestar mínimo,Socioeconomic,Socioeconomic,Population under minimum wellness line (%)
+cvegeo,Clave geografica ,,,
