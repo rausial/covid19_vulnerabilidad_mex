@@ -1,0 +1,41 @@
+,datos,Base Index,Extended
+0,entidad_cvegeo,,
+1,State,,
+2,municipio_cvegeo,,
+3,Municipality,,
+4,Population,,
+5,Male,,Demographic
+6,Female,,Demographic
+7,60 and older,Demographic,Demographic
+8,60 and older males,,Demographic
+9,60 and older females,,Demographic
+10,65 and older,,Demographic
+11,Non-spanish speakers,,Demographic
+12,Disabled,Demographic,Demographic
+13,Inhabited households,,Demographic
+14,Dwellers per household,,Housing and Hygiene
+15,Dwellers per room,Housing and Hygiene,Housing and Hygiene
+16,Households with automobile,,Socioeconomic
+17,Índice de rezago social,Socioeconomic,Socioeconomic
+18,Poverty,Socioeconomic,Socioeconomic
+19,Extreme poverty,,Socioeconomic
+20,Moderate poverty,,Socioeconomic
+21,Vulnerable (social lacks),,Socioeconomic
+22,Vulnerable (Income),,Socioeconomic
+23,Not poor nor vulnerable,,Socioeconomic
+24,Educational lag,Sociioeconomic,Sociioeconomic
+25,Health access lag,Healthcare,Healthcare
+26,Social security lag,,Healthcare
+27,Household characteristics lag,Housing and Hygiene,Housing and Hygiene
+28,Basic services lag,Housing and Hygiene,Housing and Hygiene
+29,Alimentary lag,,Housing and Hygiene
+30,At least one lag,,
+31,At least three lags,,
+32,People under wellness line,,Socioeconomic
+33,People under minnimum wellness line,,Socioeconomic
+34,Beds in public hospitals per (state) habitant,Healthcare,Healthcare
+35,Beds in private hospitals per (state) habitant,Healthcare,Healthcare
+36,Number of public hospitals per (state) habitant,Healthcare,Healthcare
+37,People with hypertension,Epidemiological,Epidemiological
+38,People with diabetes,Epidemiological,Epidemiological
+39,People with obesity,Epidemiological,Epidemiological
