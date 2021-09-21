@@ -5,7 +5,7 @@ __all__ = ['DATA_DIR_COVID', 'asegura_archivos_covid_disponibles', 'columnas_com
            'actualizar_datos_salud', 'agrupa_casos_municipios', 'agrupar_casos_municipios_por_fecha',
            'calcular_acumulativa_casos', 'calcular_ventana_casos', 'leer_variables_municipales',
            'unir_casos_estadisticas_municipales', 'tabla_covid_indicadores_municipales',
-           'serie_covid_indicadores_municipales', 'municipios_urbanos']
+           'serie_covid_indicadores_municipales', 'serie_covid_indicadores_municipales_from_df', 'municipios_urbanos']
 
 # Cell
 import os
@@ -445,14 +445,18 @@ def leer_variables_municipales(path_indicadores):
     return variables_municipales
 
 # Cell
-def unir_casos_estadisticas_municipales(casos_municipios_df, estats_municipios):
+def unir_casos_estadisticas_municipales(casos_municipios_df,
+                                        estats_municipios,
+                                        drop_cols=['CVE_ENT', 'entidad_cvegeo', 'nom_mun',
+                                                   'cvegeo','nom_ent', 'municipio_nombre',
+                                                   'id', 'ent_cvegeo', 'pob01']
+                                       ):
     cols_com = columnas_comunes(casos_municipios_df, estats_municipios)
     casos_municipios_df = casos_municipios_df.merge(estats_municipios,
                                       left_on=['CLAVE_MUNICIPIO_RES'] + cols_com,
                                       right_on=['cvegeo'] + cols_com, how='right')
 
-    casos_municipios_df.drop(columns=['CVE_ENT', 'entidad_cvegeo', 'nom_mun', 'cvegeo',
-                                      'nom_ent', 'municipio_nombre', 'id', 'ent_cvegeo', 'pob01'], inplace=True)
+    casos_municipios_df.drop(columns=drop_cols, inplace=True)
 
     return casos_municipios_df
 
@@ -484,6 +488,7 @@ def serie_covid_indicadores_municipales(fecha=None,
             print(f'Error con fecha {fecha}')
             print(e)
 
+
     covid_mun_df = agrupar_casos_municipios_por_fecha(covid_df)
 
     if acumulativa:
@@ -502,6 +507,36 @@ def serie_covid_indicadores_municipales(fecha=None,
     return covid_mun_df
 
 
+
+# Cell
+def serie_covid_indicadores_municipales_from_df(indicadores_df,
+                                                fecha,
+                                                solo_positivos=True,
+                                                acumulativa=True,
+                                                dias=30,
+                                                ):
+
+    try:
+        covid_df = carga_datos_covid19_MX(fecha)
+    except KeyError as e:
+        print(f'Error con fecha {fecha}')
+        print(e)
+
+    covid_mun_df = agrupar_casos_municipios_por_fecha(covid_df)
+    if acumulativa:
+        covid_mun_df = calcular_acumulativa_casos(covid_mun_df).reset_index(drop=True)
+    else:
+        covid_mun_df = calcular_ventana_casos(covid_mun_df, dias)
+    marco_2019 = gpd.read_file('datos/municipios/marco_2019.json')
+    mun_df = indicadores_df.merge(marco_2019, on='municipio_cvegeo').rename({'municipio_cvegeo':'cvegeo'}, axis=1)
+    drop_cols=["entidad_cvegeo", "State", "cvegeo", "Municipality", "CVE_ENT", "municipio_nombre"]
+    covid_mun_df = unir_casos_estadisticas_municipales(covid_mun_df, mun_df, drop_cols=drop_cols)
+    covid_mun_df = covid_mun_df.drop(columns='CVE_MUN')
+    if solo_positivos:
+        covid_mun_df = covid_mun_df[covid_mun_df.RESULTADO == 'Positivo SARS-CoV-2']
+
+    covid_mun_df = gpd.GeoDataFrame(covid_mun_df, geometry='geometry')
+    return covid_mun_df
 
 # Cell
 

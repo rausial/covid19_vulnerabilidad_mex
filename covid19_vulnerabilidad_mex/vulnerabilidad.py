@@ -87,9 +87,9 @@ def agregar_conteo_pruebas(covid_municipal, solo_covid=True):
 
 # Cell
 
-def agregar_tasas_municipales(casos_mun_df):
-    casos_mun_df['covid_confirmados_100k'] = 100000 * casos_mun_df['conteo'] / casos_mun_df['pob2020']
-    casos_mun_df['covid_defun_100k'] = 100000 * casos_mun_df['defunciones'] / casos_mun_df['pob2020']
+def agregar_tasas_municipales(casos_mun_df, pop_column='pob2020'):
+    casos_mun_df['covid_confirmados_100k'] = 100000 * casos_mun_df['conteo'] / casos_mun_df[pop_column]
+    casos_mun_df['covid_defun_100k'] = 100000 * casos_mun_df['defunciones'] / casos_mun_df[pop_column]
     casos_mun_df['tasa_covid_letal'] = 100 * casos_mun_df['defunciones'] / casos_mun_df['conteo']
 
     # covid_municipal = covid_municipal.query('RESULTADO == "Positivo SARS-CoV-2"').copy()
@@ -583,7 +583,8 @@ def mapas_serie_letalidad(serie_vulnerabilidad, gif=True, lapso_dias=1):
 
 # Cell
 
-def mapas_serie_vulnerabilidad(serie_vulnerabilidad, modelo='PLS', gif=True, lapso_dias=1):
+def mapas_serie_vulnerabilidad(serie_vulnerabilidad, modelo='PLS', gif=True, lapso_dias=1,
+                               columna_vulnera='valor_tasa_covid_letal'):
     '''
         Recibe el DataFrame con la vulnerabilidad calculada para un rango de fechas y genera los mapas de cada fecha.
     '''
@@ -600,8 +601,8 @@ def mapas_serie_vulnerabilidad(serie_vulnerabilidad, modelo='PLS', gif=True, lap
     for fecha in pd.date_range(inicio, fin, freq=f'{lapso_dias}D'):
         datos_mapa = serie_vulnerabilidad[(serie_vulnerabilidad.dia_ajuste == fecha) &
                                          (serie_vulnerabilidad.modelo == modelo)]
-        datos_mapa = datos_mapa[datos_mapa.valor.notna()]
-        fig = datos_mapa.plot(column='valor', cmap='RdYlBu_r', scheme="Quantiles",
+        datos_mapa = datos_mapa[datos_mapa[columna_vulnera].notna()]
+        fig = datos_mapa.plot(column=columna_vulnera, cmap='RdYlBu_r', scheme="Quantiles",
                         figsize=(10, 10), legend=True, k=5, edgecolor="face")
         # remove axis of chart
         fig.axis('off')
